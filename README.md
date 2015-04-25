@@ -5,6 +5,12 @@ Description
 --------------
 Python script to run blast on Genbank/EMBL files without having to first convert to fasta. 
 
+Usage
+-----------
+
+**Blast 2 genbank files
+``bwast.py <genbank1> <genbank2>``
+
 Cool features: 
 ------------------
 * Allows subregion of genbank or fasta file to be specified
