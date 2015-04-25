@@ -69,36 +69,34 @@ def doBlast(inputList):
             subjecFile = inputList[i+1]
             continue
         
+        blastType = args.blast
         
-    
-        if args.blast == "blastn":
-            print "Performing blastn..."
+        print "Performing blast"
+        blastOptionsPre = (args.flags if args.flags else "")
+        blastOptions = re.sub(r"-(\w+)\s", r"\1_", blastOptionsPre)
+        blastOptions = re.sub(r"\s+", r".", blastOptions)
+        #print args.flags
+        print blastOptionsPre
+        
+        blast_out = queryName + ".vs." + subjecName + "." + blastOptions + "." + blastType + ".tab"
+        
+        actList.append(blast_out) #append blast file to ACT input list
+        
+        if os.path.exists(blast_out): #check if blast output exists
+            warning("Existing blast results detected, skipping...")
+            pass
+        
+        #run BLAST
+        subprocess.Popen(blastType + " -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + blast_out + " " + blastOptionsPre, shell=True).wait()
+        #print blastType + " -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + blast_out + " " + blastOptions
+
             
-            #check if blast has been performed
-            blast_out = queryName + ".vs." + subjecName + ".blastn.tab"
-            actList.append(blast_out)
-            if os.path.exists(blast_out):
-                warning("Existing blast results detected, skipping...")
-                pass
-                            
-            subprocess.Popen("blastn -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + blast_out + " " + args.flags, shell=True).wait()
-            
-        elif args.blast == "tblastx":
-            print "Performing tblastx"
-            
+
             #construct blastout filename
-            blastOptions = re.sub(r"-(\w+)\s", r"\1_", args.flags)
-            blastOptions = re.sub(r"\s+", r".", blastOptions)
-            print blastOptions
-            
-            blast_out = queryName + ".vs." + subjecName + ".tblastx.tab"
-            actList.append(blast_out)
-            if os.path.exists(blast_out):
-                warning("Existing blast results detected, skipping...")
-                pass
-                            
-            subprocess.Popen("tblastx -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + blast_out + " " + args.flags, shell=True).wait()
-            
+                #blastOptions = re.sub(r"-(\w+)\s", r"\1_", args.flags)
+                #blastOptions = re.sub(r"\s+", r".", blastOptions)
+                        
+
     actList.append(inputList[-1]) #add last input file to ACT list
             
 def loadACT(inputList):
@@ -170,8 +168,7 @@ if __name__ == '__main__':
     
     #takes in the input files
     parser.add_argument('input', nargs="+", action="store", help="Specify at least 2 input files")
-    parser.add_argument("-o", "--output", action="store", help="Name of output file")
-    parser.add_argument("-f", "--flags", action="store", help="Custom BLAST options. E.g. -f '-evalue 0.001'")
+    parser.add_argument("-f", "--flags", action="store", help="Custom BLAST options. E.g. -f '-task blastn -evalue 0.001'")
     parser.add_argument("-v", "--verbose", action="store_true", default=False, help="Verbose mode")
     parser.add_argument("-a", "--act", action="store_true", default=False, help="Run ACT")
     parser.add_argument("-b", "--blast", action="store", default="blastn", choices=("blastn", "tblastx"), help="Blast program to use")

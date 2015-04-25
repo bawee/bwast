@@ -34,7 +34,7 @@ Cool features:
 ------------------
 * Allows subregion of genbank or fasta file to be specified
 * Allows loading of files into Artemis Comparison Tool (ACT) - act must be on your PATH
-* Can take in as many infinite number of input sequences, depending on memory
+* Can take in infinite number of input sequences, depending on memory available
 
 
 Requirements
@@ -43,8 +43,6 @@ Requirements
 **NCBI's blast+** (``blastn`` and ``tblastx`` need to be on your path)
 **Artemis Comparison Tool (ACT)** (``act`` needs to be on your path)
 **Biopython**
-
-Cut and converted files will be written into the same directory as the file specified in the arguments, NOT the current working directory.
 
 
 F.A.Q
