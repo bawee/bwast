@@ -4,7 +4,7 @@ Script to run blast on Genbank/EMBL files without having to first convert to fas
 
 Written by Bryan Wee.
 
-Version 0.0.1 
+Version 0.0.1 - 20150425
 
 """
 
@@ -158,14 +158,11 @@ lastarg = 1
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='''
-    
 Wrapper script to run blast on Genbank/EMBL files without having to first convert to fasta.
     
 Input: Genbank, EMBL or Fasta (Make sure files, or symlinks, are in working directory)
     
 Requires: BLAST+, ACT and BioPython on your PATH
-    
-    
     ''', formatter_class=RawTextHelpFormatter)
         
     
