@@ -25,6 +25,9 @@ Examples
 
 ``bwast.py <genbank1> 200..2000 <genbank2> 7000..9000``
 
+**Blast with blastn instead of megablast and use a lower e-value cutoff**
+``bwast.py <genbank1> <genbank2> -f '-task blastn -evalue 0.0001``
+
 **See optional arguments and usage**
 
 ``bwast.py -h``
@@ -63,6 +66,8 @@ Then reload your .profile:
 Info
 -----------
 Written by Bryan Wee.
+
+Inspired by EasyfigCL (MJ Sullivan) and Seqhandler (NF Alikhan)
 
 
 Version 0.0.1 

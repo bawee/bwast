@@ -12,7 +12,6 @@ import sys, os
 import argparse
 import re
 import subprocess
-import filecmp
 
 from Bio import SeqIO
 
@@ -90,12 +89,6 @@ def doBlast(inputList):
         subprocess.Popen(blastType + " -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + blast_out + " " + blastOptionsPre, shell=True).wait()
         #print blastType + " -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + blast_out + " " + blastOptions
 
-            
-
-            #construct blastout filename
-                #blastOptions = re.sub(r"-(\w+)\s", r"\1_", args.flags)
-                #blastOptions = re.sub(r"\s+", r".", blastOptions)
-                        
 
     actList.append(inputList[-1]) #add last input file to ACT list
             
