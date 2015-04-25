@@ -81,10 +81,15 @@ def doBlast(inputList):
                 warning("Existing blast results detected, skipping...")
                 pass
                             
-            subprocess.Popen("blastn -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + queryName + ".vs." + subjecName + ".blastn.tab " + args.flags, shell=True).wait()
+            subprocess.Popen("blastn -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + blast_out + " " + args.flags, shell=True).wait()
             
         elif args.blast == "tblastx":
             print "Performing tblastx"
+            
+            #construct blastout filename
+            blastOptions = re.sub(r"-(\w+)\s", r"\1_", args.flags)
+            blastOptions = re.sub(r"\s+", r".", blastOptions)
+            print blastOptions
             
             blast_out = queryName + ".vs." + subjecName + ".tblastx.tab"
             actList.append(blast_out)
@@ -92,7 +97,7 @@ def doBlast(inputList):
                 warning("Existing blast results detected, skipping...")
                 pass
                             
-            subprocess.Popen("tblastx -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + queryName + ".vs." + subjecName + ".tblastx.tab " + args.flags, shell=True).wait()
+            subprocess.Popen("tblastx -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + blast_out + " " + args.flags, shell=True).wait()
             
     actList.append(inputList[-1]) #add last input file to ACT list
             

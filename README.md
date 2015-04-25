@@ -6,8 +6,8 @@ Description
 Python script to run blast on Genbank/EMBL files without having to first convert to fasta. 
 
 
-Usage
------------
+Examples
+---------------
 
 **Blast two genbank files**
 
