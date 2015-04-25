@@ -92,7 +92,7 @@ def doBlast(inputList):
                 warning("Existing blast results detected, skipping...")
                 pass
                             
-            subprocess.Popen("tblastx -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + queryName + ".vs." + subjecName + ".tblastx.tab", shell=True).wait()
+            subprocess.Popen("tblastx -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + queryName + ".vs." + subjecName + ".tblastx.tab " + args.flags, shell=True).wait()
             
     actList.append(inputList[-1]) #add last input file to ACT list
             

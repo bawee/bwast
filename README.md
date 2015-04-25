@@ -5,6 +5,7 @@ Description
 --------------
 Python script to run blast on Genbank/EMBL files without having to first convert to fasta. 
 
+
 Usage
 -----------
 
@@ -25,10 +26,12 @@ Usage
 ``bwast.py <genbank1> 200..2000 <genbank2> 7000..9000``
 
 
+
 Cool features: 
 ------------------
 * Allows subregion of genbank or fasta file to be specified
 * Allows loading of files into Artemis Comparison Tool (ACT) - act must be on your PATH
+
 
 Requirements
 -----------------
@@ -38,8 +41,6 @@ act (act needs to be on your path)
 biopython
 
 Cut and converted files will be written into the same directory as the file specified in the arguments, NOT the current working directory.
-
-
 
 
 F.A.Q
@@ -55,7 +56,6 @@ On the Mac, add this line to your .profile file (~/.profile):
 
 Then reload your .profile:
 ``source ~/.profile``
-
 
 
 Info
