@@ -27,7 +27,7 @@ Usage
 
 **See optional arguments and usage**
 
-``blastp.py -h``
+``bwast.py -h``
 
 
 Cool features: 
