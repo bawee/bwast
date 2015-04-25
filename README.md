@@ -36,9 +36,9 @@ Cool features:
 Requirements
 -----------------
 
-blast+ (blastn and tblastx need to be on your path)
-act (act needs to be on your path)
-biopython
+**NCBI's blast+** (``blastn`` and ``tblastx`` need to be on your path)
+**Artemis Comparison Tool (ACT)** (``act`` needs to be on your path)
+**Biopython**
 
 Cut and converted files will be written into the same directory as the file specified in the arguments, NOT the current working directory.
 
