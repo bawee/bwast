@@ -25,6 +25,9 @@ Usage
 
 ``bwast.py <genbank1> 200..2000 <genbank2> 7000..9000``
 
+**See optional arguments and usage**
+
+``blastp.py -h``
 
 
 Cool features: 
