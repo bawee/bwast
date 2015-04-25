@@ -9,15 +9,15 @@ Python script to run blast on Genbank/EMBL files without having to first convert
 Usage
 -----------
 
-**Blast 2 genbank files**
+**Blast two genbank files**
 
 ``bwast.py <genbank1> <genbank2>``
 
-**Blast 2 or more files**
+**Blast two or more files**
 
 ``bwast.py <genbank1> <genbank2> <fasta1> <genbank3>``
 
-**Blast 2 or more genbank files and load in Artemis Comparison Tool**
+**Blast two or more genbank files and load in Artemis Comparison Tool**
 
 ``bwast.py -a <genbank1> <genbank2>``
 
@@ -31,6 +31,7 @@ Cool features:
 ------------------
 * Allows subregion of genbank or fasta file to be specified
 * Allows loading of files into Artemis Comparison Tool (ACT) - act must be on your PATH
+* Can take in as many infinite number of input sequences, depending on memory
 
 
 Requirements
