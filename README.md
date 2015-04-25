@@ -8,7 +8,8 @@ Python script to run blast on Genbank/EMBL files without having to first convert
 Usage
 -----------
 
-**Blast 2 genbank files
+**Blast 2 genbank files**
+
 ``bwast.py <genbank1> <genbank2>``
 
 Cool features: 
@@ -32,6 +33,7 @@ F.A.Q
 ----------------
 
 **How do I get ACT on my PATH?**
+
 On the Mac, add this line to your .profile: 
 ``export PATH="$PATH:/Applications/Artemis.app/Contents``
 
