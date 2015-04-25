@@ -12,6 +12,19 @@ Usage
 
 ``bwast.py <genbank1> <genbank2>``
 
+**Blast 2 or more files**
+
+``bwast.py <genbank1> <genbank2> <fasta1> <genbank3>``
+
+**Blast 2 or more genbank files and load in Artemis Comparison Tool**
+
+``bwast.py -a <genbank1> <genbank2>``
+
+**Blast subregions of genbank files**
+
+``bwast.py <genbank1> 200..2000 <genbank2> 7000..9000``
+
+
 Cool features: 
 ------------------
 * Allows subregion of genbank or fasta file to be specified
