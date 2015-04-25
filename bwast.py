@@ -12,6 +12,7 @@ import sys, os
 import argparse
 import re
 import subprocess
+from argparse import RawTextHelpFormatter
 
 from Bio import SeqIO
 
@@ -156,7 +157,16 @@ blastOptions = ''
 lastarg = 1
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='''
+    
+Wrapper script to run blast on Genbank/EMBL files without having to first convert to fasta.
+    
+Input: Genbank, EMBL or Fasta (Make sure files, or symlinks, are in working directory)
+    
+Requires: BLAST+, ACT and BioPython on your PATH
+    
+    
+    ''', formatter_class=RawTextHelpFormatter)
         
     
     #takes in the input files

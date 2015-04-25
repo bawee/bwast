@@ -26,6 +26,7 @@ Examples
 ``bwast.py <genbank1> 200..2000 <genbank2> 7000..9000``
 
 **Blast with blastn instead of megablast and use a lower e-value cutoff**
+
 ``bwast.py <genbank1> <genbank2> -f '-task blastn -evalue 0.0001``
 
 **See optional arguments and usage**
