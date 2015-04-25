@@ -47,8 +47,11 @@ F.A.Q
 
 **How do I get ACT on my PATH?**
 
-On the Mac, add this line to your .profile: 
+On the Mac, add this line to your .profile file (~/.profile): 
 ``export PATH="$PATH:/Applications/Artemis.app/Contents``
+
+Then reload your .profile:
+``source ~/.profile``
 
 
 
