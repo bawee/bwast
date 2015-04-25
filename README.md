@@ -45,6 +45,9 @@ Cut and converted files will be written into the same directory as the file spec
 F.A.Q
 ----------------
 
+**Can I use relative/absolute paths to point to input files?**
+The path name (e.g. ../../seq/) is currently read in when parsing the given arguments. It would be better to copy or link your sequence files into your current working directory.
+
 **How do I get ACT on my PATH?**
 
 On the Mac, add this line to your .profile file (~/.profile): 
