@@ -12,6 +12,7 @@ import sys, os
 import argparse
 import re
 import subprocess
+import filecmp
 
 from Bio import SeqIO
 
@@ -68,6 +69,7 @@ def doBlast(inputList):
             subjecFile = inputList[i+1]
             continue
         
+        
     
         if args.blast == "blastn":
             print "Performing blastn..."
@@ -79,7 +81,7 @@ def doBlast(inputList):
                 warning("Existing blast results detected, skipping...")
                 pass
                             
-            subprocess.Popen("blastn -task blastn -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + queryName + ".vs." + subjecName + ".blastn.tab", shell=True).wait()
+            subprocess.Popen("blastn -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + queryName + ".vs." + subjecName + ".blastn.tab " + args.flags, shell=True).wait()
             
         elif args.blast == "tblastx":
             print "Performing tblastx"
@@ -164,7 +166,7 @@ if __name__ == '__main__':
     #takes in the input files
     parser.add_argument('input', nargs="+", action="store", help="Specify at least 2 input files")
     parser.add_argument("-o", "--output", action="store", help="Name of output file")
-    parser.add_argument("-f", "--flags", action="store", help="Custom BLAST options")
+    parser.add_argument("-f", "--flags", action="store", help="Custom BLAST options. E.g. -f '-evalue 0.001'")
     parser.add_argument("-v", "--verbose", action="store_true", default=False, help="Verbose mode")
     parser.add_argument("-a", "--act", action="store_true", default=False, help="Run ACT")
     parser.add_argument("-b", "--blast", action="store", default="blastn", choices=("blastn", "tblastx"), help="Blast program to use")
