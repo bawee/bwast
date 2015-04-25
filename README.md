@@ -58,9 +58,11 @@ Then reload your .profile:
 
 
 
+Info
+-----------
 Written by Bryan Wee.
 
 
 Version 0.0.1 
 
-"""
+
