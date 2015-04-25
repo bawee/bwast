@@ -40,9 +40,9 @@ Cool features:
 Requirements
 -----------------
 
-**NCBI's blast+** (``blastn`` and ``tblastx`` need to be on your path)
-**Artemis Comparison Tool (ACT)** (``act`` needs to be on your path)
-**Biopython**
+* **NCBI's blast+** (``blastn`` and ``tblastx`` need to be on your path)
+* **Artemis Comparison Tool (ACT)** (``act`` needs to be on your path)
+* **Biopython**
 
 
 F.A.Q
