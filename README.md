@@ -10,7 +10,7 @@ Python script to run blast on Genbank/EMBL files without having to first convert
 * Can take in infinite number of input sequences, depending on memory available
 
 * Requires files to have recognisable suffixes (i.e. gb, gbk, fa, fas, fna, fasta, emb, embl)
-* Requires files to be or sym linked in current directory
+* Requires files to be present or sym-linked in current directory
 
 * Produces fasta version of genbank/embl file
 * Produces blast tab delimited (-outfmt 6) output with blast options specified
@@ -62,8 +62,11 @@ F.A.Q
 The path name (e.g. ../../seq/) is currently read in when parsing the given arguments. It would be better to copy or link your sequence files into your current working directory.
 
 E.g. 
+
 ``cd directory/you/want/to/work/in``
+
 ``ln -s path/to/sequence/files .``
+
 ``path/to/bwast.py genbank1.gb genbank2.gb``
 
 **How do I get ACT on my PATH?**
@@ -77,6 +80,14 @@ Then reload your .profile:
 **My BLAST hits were flipped and are matching the wrong end of the sequence**
 
 If your query and reference are very similar in length, ACT can sometimes flip the BLAST hits incorrectly.
+
+**What does the name *bwast* mean?**
+
+Blast Wrapper And Sequence Truncator 
+
+or
+
+Bryan Wee's AweSome Tool
 
 
 Info
