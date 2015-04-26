@@ -138,14 +138,6 @@ def error(message):
 def warning(message):
     sys.stderr.write("\n%s\n\n" % message)
 
-    
-#Default values    
-outfile = 'blast_results.tab'
-blastFlavour = 'blastn'
-doACT = False
-blastOptions = ''
-
-lastarg = 1
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='''
