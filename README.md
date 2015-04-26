@@ -5,6 +5,18 @@ Description
 --------------
 Python script to run blast on Genbank/EMBL files without having to first convert to fasta. 
 
+* Allows subregion of genbank or fasta file to be specified after filename (start..stop)
+* Allows loading of files into Artemis Comparison Tool (ACT) - act must be on your PATH (-a option)
+* Can take in infinite number of input sequences, depending on memory available
+
+* Requires files to have recognisable suffixes (i.e. gb, gbk, fa, fas, fna, fasta, emb, embl)
+* Requires files to be or sym linked in current directory
+
+* Produces fasta version of genbank/embl file
+* Produces blast tab delimited (-outfmt 6) output with blast options specified
+* Produces genbank/embl/fasta of subregion, if coordinates given
+
+
 
 Examples
 ---------------
@@ -27,18 +39,11 @@ Examples
 
 **Blast with blastn instead of megablast and use a lower e-value cutoff**
 
-``bwast.py <genbank1> <genbank2> -f '-task blastn -evalue 0.0001``
+``bwast.py <genbank1> <genbank2> -f '-task blastn -evalue 0.0001'``
 
 **See optional arguments and usage**
 
 ``bwast.py -h``
-
-
-Cool features: 
-------------------
-* Allows subregion of genbank or fasta file to be specified
-* Allows loading of files into Artemis Comparison Tool (ACT) - act must be on your PATH
-* Can take in infinite number of input sequences, depending on memory available
 
 
 Requirements
@@ -53,7 +58,13 @@ F.A.Q
 ----------------
 
 **Can I use relative/absolute paths to point to input files?**
+
 The path name (e.g. ../../seq/) is currently read in when parsing the given arguments. It would be better to copy or link your sequence files into your current working directory.
+
+E.g. 
+``cd directory/you/want/to/work/in``
+``ln -s path/to/sequence/files .``
+``path/to/bwast.py genbank1.gb genbank2.gb``
 
 **How do I get ACT on my PATH?**
 
@@ -64,6 +75,7 @@ Then reload your .profile:
 ``source ~/.profile``
 
 **My BLAST hits were flipped and are matching the wrong end of the sequence**
+
 If your query and reference are very similar in length, ACT can sometimes flip the BLAST hits incorrectly.
 
 

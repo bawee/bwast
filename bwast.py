@@ -168,7 +168,7 @@ Requires: BLAST+, ACT and BioPython on your PATH
     
     #takes in the input files
     parser.add_argument('input', nargs="+", action="store", help="Specify at least 2 input files")
-    parser.add_argument("-f", "--flags", action="store", help="Custom BLAST options. E.g. -f '-task blastn -evalue 0.001'")
+    parser.add_argument("-f", "--flags", action="store", help="Custom BLAST options, enclosed in quotes. E.g. -f '-task blastn -evalue 0.001'")
     parser.add_argument("-v", "--verbose", action="store_true", default=False, help="Verbose mode")
     parser.add_argument("-a", "--act", action="store_true", default=False, help="Run ACT.")
     parser.add_argument("-b", "--blast", action="store", default="blastn", choices=("blastn", "tblastx"), help="Blast program to use. Default [blastn]")
