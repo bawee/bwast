@@ -28,7 +28,7 @@ def main():
             filesForBlasting.append(shortGenbank) #appends the cut filename to the list
             
         elif determineFileType(args.input[i]):
-            print args.input[i], "file type is:", determineFileType(args.input[i])
+            if args.verbose: print args.input[i], "file type is:", determineFileType(args.input[i])
             filesForBlasting.append(args.input[i])
 
         else:
@@ -42,7 +42,6 @@ def main():
         
 def doBlast(inputList):
     for file in inputList:
-        #print i
         if determineFileType(file) in {"genbank", "embl"}: #if file is genbank, convert to fasta
             convert2Fasta(file)
         else:
@@ -71,24 +70,23 @@ def doBlast(inputList):
         
         blastType = args.blast
         
-        print "Performing blast"
+        if args.verbose: print "Performing blast"
         blastOptionsPre = (args.flags if args.flags else "")
         blastOptions = re.sub(r"-(\w+)\s", r"\1_", blastOptionsPre)
         blastOptions = re.sub(r"\s+", r".", blastOptions)
-        #print args.flags
-        print blastOptionsPre
+        if args.verbose: print "with options: %s" % (blastOptionsPre)
         
         blast_out = "%s.vs.%s.%s.%s.tab" % (queryName, subjecName, blastOptions, blastType)
         
         actList.append(blast_out) #append blast file to ACT input list
         
         if os.path.exists(blast_out): #check if blast output exists
-            warning("Existing blast results detected, skipping...")
+            if args.verbose: warning("Existing blast results detected, skipping...")
             pass
         
         #run BLAST
-        #subprocess.Popen("%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre), shell=True).wait()
-        print "%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre)
+        subprocess.Popen("%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre), shell=True).wait()
+        #print "%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre)
 
 
     actList.append(inputList[-1]) #add last input file to ACT list
@@ -96,7 +94,6 @@ def doBlast(inputList):
 def loadACT(inputList):
         actCommand = " ".join(inputList)
         subprocess.Popen(["act " + actCommand + " &"], shell=True)
-        #print actCommand
 
 def convert2Fasta(file):
     convertedFilename = re.sub(r"\.\w+$", r".fa", file)
@@ -114,7 +111,7 @@ def determineFileType(file):
         
            
 def cutGenbank(file, coordinates):
-    print "Coordinates provided, cutting:", file, coordinates
+    if args.verbose: print "Coordinates provided, cutting:", file, coordinates
     coordinatesSplit = coordinates.split('..') #splits start from stop
     startCut = int(coordinatesSplit[0])
     stopCut = int(coordinatesSplit[1])
@@ -130,7 +127,7 @@ def cutGenbank(file, coordinates):
         cutFileName =  re.sub(r"cut", coordinates, cutFileName) #specifies cut in the name
         cutFile = open(cutFileName, 'w')
         SeqIO.write(cutGenbank, cutFile, determineFileType(file))
-        print "Cut file written to:", cutFileName            
+        if args.verbose: print "Cut file written to:", cutFileName            
     
     return cutFileName
         
