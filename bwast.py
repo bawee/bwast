@@ -41,13 +41,13 @@ def main():
 
         
 def doBlast(inputList):
-    for i in range(0,len(inputList)):
-        if determineFileType(inputList[i]) in {"genbank", "embl"}: #if file not fasta, convert to fasta
-            convert2Fasta(inputList[i])
+    for i in inputList:
+        #print i
+        if determineFileType(i) in {"genbank", "embl"}: #if file is genbank, convert to fasta
+            convert2Fasta(i)
         else:
-            continue
-     
-
+            pass
+    
     for i in range(0,len(inputList) - 1): #pair up seqs for blast
         queryName = re.sub(r"\.(\w+$)", r"", inputList[i]) #strip suffixes from filename
         subjecName = re.sub(r"\.(\w+$)", r"", inputList[i+1])
@@ -57,17 +57,17 @@ def doBlast(inputList):
         
         actList.append(inputList[i])
                 
-        if determineFileType(inputList[i]) in {"genbank", "embl"}: #use fasta if converted
+        if determineFileType(inputList[i]) in {"genbank", "embl"}: #if genbank, use fasta file generated earlier
             queryFile = re.sub(r"\.\w+$", r".fa", inputList[i])
         else:
             queryFile = inputList[i]
-            continue
+            pass
         
-        if determineFileType(inputList[i]) in {"genbank", "embl"}: #use fasta if converted
+        if determineFileType(inputList[i+1]) in {"genbank", "embl"}: #use fasta if converted
             subjecFile = re.sub(r"\.\w+$", r".fa", inputList[i+1])
         else:
             subjecFile = inputList[i+1]
-            continue
+            pass
         
         blastType = args.blast
         
@@ -78,7 +78,7 @@ def doBlast(inputList):
         #print args.flags
         print blastOptionsPre
         
-        blast_out = queryName + ".vs." + subjecName + "." + blastOptions + "." + blastType + ".tab"
+        blast_out = "%s.vs.%s.%s.%s.tab" % (queryName, subjecName, blastOptions, blastType)
         
         actList.append(blast_out) #append blast file to ACT input list
         
@@ -87,8 +87,8 @@ def doBlast(inputList):
             pass
         
         #run BLAST
-        subprocess.Popen(blastType + " -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + blast_out + " " + blastOptionsPre, shell=True).wait()
-        #print blastType + " -query " + queryFile + ' -subject ' + subjecFile + " -outfmt 6 -out " + blast_out + " " + blastOptions
+        subprocess.Popen("%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre), shell=True).wait()
+        #print "%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre)
 
 
     actList.append(inputList[-1]) #add last input file to ACT list

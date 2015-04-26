@@ -63,6 +63,9 @@ On the Mac, add this line to your .profile file (~/.profile):
 Then reload your .profile:
 ``source ~/.profile``
 
+**My BLAST hits were flipped and are matching the wrong end of the sequence**
+If your query and reference are very similar in length, ACT can sometimes flip the BLAST hits incorrectly.
+
 
 Info
 -----------
