@@ -41,10 +41,10 @@ def main():
 
         
 def doBlast(inputList):
-    for i in inputList:
+    for file in inputList:
         #print i
-        if determineFileType(i) in {"genbank", "embl"}: #if file is genbank, convert to fasta
-            convert2Fasta(i)
+        if determineFileType(file) in {"genbank", "embl"}: #if file is genbank, convert to fasta
+            convert2Fasta(file)
         else:
             pass
     
@@ -87,8 +87,8 @@ def doBlast(inputList):
             pass
         
         #run BLAST
-        subprocess.Popen("%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre), shell=True).wait()
-        #print "%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre)
+        #subprocess.Popen("%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre), shell=True).wait()
+        print "%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre)
 
 
     actList.append(inputList[-1]) #add last input file to ACT list
@@ -140,12 +140,6 @@ def error(message):
     
 def warning(message):
     sys.stderr.write("\n%s\n\n" % message)
-
-
-            #function to convert genbank to fasta
-#def convert2fasta(genbank, outfile, start, stop):
-    #genbank = args.input[]
-    #print genbank
 
     
 #Default values    

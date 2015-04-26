@@ -85,10 +85,6 @@ If your query and reference are very similar in length, ACT can sometimes flip t
 
 Blast Wrapper And Sequence Truncator 
 
-or
-
-Bryan Wee's AweSome Tool
-
 
 Info
 -----------
