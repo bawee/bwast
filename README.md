@@ -72,9 +72,11 @@ E.g.
 **How do I get ACT on my PATH?**
 
 On the Mac, add this line to your .profile file (~/.profile): 
+
 ``export PATH="$PATH:/Applications/Artemis.app/Contents``
 
 Then reload your .profile:
+
 ``source ~/.profile``
 
 **My BLAST hits were flipped and are matching the wrong end of the sequence**
