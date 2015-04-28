@@ -30,6 +30,8 @@ def main():
         elif determineFileType(args.input[i]):
             if args.verbose: print args.input[i], "file type is:", determineFileType(args.input[i])
             filesForBlasting.append(args.input[i])
+            
+
 
         else:
             error("Error: unable to recognize suffix of: " + args.input[i])
@@ -46,6 +48,7 @@ def doBlast(inputList):
             convert2Fasta(file)
         else:
             pass
+        
     
     for i in range(0,len(inputList) - 1): #pair up seqs for blast
         queryName = re.sub(r"\.(\w+$)", r"", inputList[i]) #strip suffixes from filename
@@ -56,17 +59,38 @@ def doBlast(inputList):
         
         actList.append(inputList[i])
                 
-        if determineFileType(inputList[i]) in {"genbank", "embl"}: #if genbank, use fasta file generated earlier
+        if determineFileType(inputList[i]) in {"genbank", "embl"}: #Query sequence for BLAST. if genbank, use fasta file generated earlier
             queryFile = re.sub(r"\.\w+$", r".fa", inputList[i])
         else:
-            queryFile = inputList[i]
-            pass
+            #queryFile = inputList[i]
+            
+            #check if query is is a multi fasta
+            filetype = determineFileType(inputList[i])
+            records = list(SeqIO.parse(inputList[i], filetype))
+            if len(records) > 1:
+                if args.verbose: print "Multifasta detected, concatenating prior to BLASTing"
+                mergedFile = mergeRecords(inputList[i])
+                queryFile = mergedFile
+                    
+            else:
+                queryFile = inputList[i]
+                pass
         
-        if determineFileType(inputList[i+1]) in {"genbank", "embl"}: #use fasta if converted
+        if determineFileType(inputList[i+1]) in {"genbank", "embl"}: #Subject sequence for BLAST, if genbank, use fasta file generated earlier
             subjecFile = re.sub(r"\.\w+$", r".fa", inputList[i+1])
         else:
-            subjecFile = inputList[i+1]
-            pass
+            
+            #check if query is is a multi fasta 
+            filetype = determineFileType(inputList[i+1])
+            records = list(SeqIO.parse(inputList[i+1], filetype))
+            if len(records) > 1:
+                if args.verbose: print "Multifasta detected, concatenating prior to BLASTing"
+                mergedFile = mergeRecords(inputList[i+1])
+                subjecFile = mergedFile
+                    
+            else:
+                subjecFile = inputList[i+1]
+                pass
         
         blastType = args.blast
         
@@ -94,6 +118,42 @@ def doBlast(inputList):
 def loadACT(inputList):
         actCommand = " ".join(inputList)
         subprocess.Popen(["act " + actCommand + " &"], shell=True)
+        
+def mergeRecords(file): #adapted from SeqHandler by NF Alikhan (github.com/happykhan/seqhandler)
+
+#SeqHandler is a script for merging, converting and splitting sequence files (Genbank, EMBL, fasta and others). Please use it to merge multi-Genbank files before running bwast.py
+
+    filetype = determineFileType(file) #determine file type
+    readInMultifasta = open(file, "r")
+    records = list(SeqIO.parse(readInMultifasta, filetype))
+
+    mergingFile = records[0]
+    from Bio.SeqFeature import SeqFeature, FeatureLocation
+    contigs = SeqFeature(FeatureLocation(0, len(mergingFile) ), type="fasta_record",\
+                strand=1)
+    contigs.qualifiers["note"] = records[0].name #pull out contig number of first contig
+    mergingFile.features.append(contigs) #append first contig to mergingFile
+    for nextRecord in records[1:]:
+        contigs = SeqFeature(FeatureLocation(len(mergingFile), len(mergingFile) + len(nextRecord)), type="fasta_record",\
+                strand=1)
+        contigs.qualifiers["note"] = nextRecord.name 
+        mergingFile.features.append(contigs) #append subsequent contigs to mergingFile
+        mergingFile += nextRecord
+    mergingFile.name = records[0].name
+    mergingFile.description = records[0].description
+    mergingFile.annotations = records[0].annotations
+
+    for feature in mergingFile.features:
+        if feature.type == 'source':
+            mergingFile.features.remove(feature)
+    contigs = SeqFeature(FeatureLocation(0, len(mergingFile)), type="source", strand=1)
+    mergingFile.features.insert(0,contigs)
+    merged_file = re.sub(r"\.\w+$", r".merged.fa", file)
+    out_handle = open(merged_file, "w")
+    SeqIO.write(mergingFile, out_handle, filetype)
+    return merged_file
+
+#END of code adapted from SeqHandler.
 
 def convert2Fasta(file):
     convertedFilename = re.sub(r"\.\w+$", r".fa", file)
