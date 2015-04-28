@@ -57,6 +57,10 @@ Requirements
 F.A.Q
 ----------------
 
+**Why do I get the error: ``BLAST engine error: Empty CBlastQueryVector`` or ``Command line argument error: Query is Empty!``?**
+
+Genbank files output by Artemis can sometimes cause this due to the absence of a valid header. Please contact me if you need a script to add a dummy header.
+
 **Can I use relative/absolute paths to point to input files?**
 
 The path name (e.g. ../../seq/) is currently read in when parsing the given arguments. It would be better to copy or link your sequence files into your current working directory.
