@@ -97,6 +97,7 @@ Written by Bryan Wee.
 
 Inspired by EasyfigCL (MJ Sullivan) and Seqhandler (NF Alikhan)
 
+Merge subroutine adapted from Seqhandler (NF Alikhan) github.com/happykhan/seqhandler
 
 Version 0.0.1 
 
