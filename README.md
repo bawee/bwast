@@ -61,6 +61,7 @@ F.A.Q
 
 Genbank files output by Artemis can sometimes cause this due to the absence of a valid header. Please contact me if you need a script to add a dummy header.
 
+
 **Can I use relative/absolute paths to point to input files?**
 
 The path name (e.g. ../../seq/) is currently read in when parsing the given arguments. It would be better to copy or link your sequence files into your current working directory.
@@ -73,6 +74,7 @@ E.g.
 
 ``path/to/bwast.py genbank1.gb genbank2.gb``
 
+
 **How do I get ACT on my PATH?**
 
 On the Mac, run this command: 
@@ -82,9 +84,15 @@ On the Mac, run this command:
 or put this line into your ~/.profile to have it set permanently.
 
 
+**I get error messages when using a genbank or embl file. Is there something wrong with my file format?**
+
+Biopython (used by bwast) is very fussy about the exact genbank/embl format used. Try manually adding the expected lines/text in the header. Genbank/embl files output by Artemis and RAST are known to be incompatible with biopython.
+
+
 **My BLAST hits were flipped and are matching the wrong end of the sequence**
 
 If your query and reference are very similar in length, ACT can sometimes flip the BLAST hits incorrectly.
+
 
 **What does the name *bwast* mean?**
 
