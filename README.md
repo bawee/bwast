@@ -107,22 +107,22 @@ path/to/bwast.py genbank1.gb genbank2.gb
 export PATH="$PATH:/Applications/Artemis.app/Contents"
 ```
 
-or put this line into your ~/.profile to have it set permanently.
+  or put this line into your ~/.profile to have it set permanently.
 
 
 5. **I get error messages when using a genbank or embl file. Is there something wrong with my file format?**
 
-Biopython (used by bwast) is very fussy about the exact genbank/embl format used. Try manually adding the expected lines/text in the header. Genbank/embl files output by Artemis and RAST are known to be incompatible with biopython.
+  Biopython (used by bwast) is very fussy about the exact genbank/embl format used. Try manually adding the expected lines/text in the header. Genbank/embl files output by Artemis and RAST are known to be incompatible with biopython.
 
 
 6. **My BLAST hits were flipped and are matching the wrong end of the sequence**
 
-If your query and reference are very similar in length, ACT can sometimes flip the BLAST hits incorrectly. I do not know how to prevent this from happening. If you are specifying a subregion, try changing the sequence length.
+  If your query and reference are very similar in length, ACT can sometimes flip the BLAST hits incorrectly. I do not know how to prevent this from happening. If you are specifying a subregion, try changing the sequence length.
 
 
 7. **What does the name *bwast* mean?**
 
-Blast Wrapper And Sequence Truncator 
+  Blast Wrapper And Sequence Truncator 
 
 
 Info
@@ -133,5 +133,5 @@ Inspired by EasyfigCL (MJ Sullivan) and Seqhandler (NF Alikhan)
 
 Merge subroutine adapted from Seqhandler (NF Alikhan) github.com/happykhan/seqhandler
 
-Version 0.0.1 - 1st version
-Version 0.0.2 - added ability to detect and merge multifasta inputs - Thanks to B Forde for the suggestion.
+1. Version 0.0.1 - 1st version
+2. Version 0.0.2 - added ability to detect and merge multifasta inputs - Thanks to B Forde for the suggestion.
