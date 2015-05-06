@@ -76,22 +76,22 @@ F.A.Q
 
 1. **I think I found a bug in the script. How do I let you know?**
 
-Thanks for taking the time to report it! Please submit an issue on GitHub and I will be in touch shortly. You can also contact me on twitter [@bawee] [].
+  Thanks for taking the time to report it! Please submit an issue on GitHub and I will be in touch shortly. You can also contact me on twitter [@bawee] [].
 
-[@bawee]: https://twitter.com/bawee
+  [@bawee]: https://twitter.com/bawee
 
 2. **Why do I get the error: ``BLAST engine error: Empty CBlastQueryVector`` or ``Command line argument error: Query is Empty!``?**
 
-Genbank files output by Artemis can sometimes cause this due to the absence of a valid header. Please contact me on twitter if you need a script to add a dummy header.
+  Genbank files output by Artemis can sometimes cause this due to the absence of a valid header. Please contact me on twitter if you need a script to add a dummy header.
 
 
 3. **Can I use relative/absolute paths to point to input files?**
 
-The path name (e.g. ../../seq/) is currently read in when parsing the given arguments. It would be better to copy or link your sequence files into your current working directory.
+  The path name (e.g. ../../seq/) is currently read in when parsing the given arguments. It would be better to copy or link your sequence files into your current working directory.
 
-E.g. 
+  E.g. 
 
-```
+  ```
 cd directory/you/want/to/work/in
 
 ln -s path/to/sequence/files .
@@ -101,9 +101,9 @@ path/to/bwast.py genbank1.gb genbank2.gb
 
 4. **How do I get ACT on my PATH?**
 
-On the Mac, run this command: 
+  On the Mac, run this command: 
 
-```
+  ```
 export PATH="$PATH:/Applications/Artemis.app/Contents"
 ```
 
