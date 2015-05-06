@@ -50,7 +50,7 @@ Quick Start Instructions
 
 ``bwast.py <genbank1> <genbank2>``
 
-**Blast two or more files**
+**Blast more than two files**
 
 ``bwast.py <genbank1> <genbank2> <fasta1> <genbank3>``
 
@@ -62,7 +62,7 @@ Quick Start Instructions
 
 ``bwast.py <genbank1> 200..2000 <genbank2> 7000..9000``
 
-**Blast with blastn instead of megablast and use a lower e-value cutoff**
+**Blast with blastn instead of megablast and use a custom e-value cutoff**
 
 ``bwast.py <genbank1> <genbank2> -f '-task blastn -evalue 0.0001'``
 
