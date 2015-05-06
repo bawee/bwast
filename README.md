@@ -63,9 +63,14 @@ Requirements
 F.A.Q
 ----------------
 
+**I think I found a bug in the script. How do I report it?**
+
+Please submit an issue on GitHub and I will be in touch shortly. You can also contact me on twitter ``@bawee``.
+
+
 **Why do I get the error: ``BLAST engine error: Empty CBlastQueryVector`` or ``Command line argument error: Query is Empty!``?**
 
-Genbank files output by Artemis can sometimes cause this due to the absence of a valid header. Please contact me if you need a script to add a dummy header.
+Genbank files output by Artemis can sometimes cause this due to the absence of a valid header. Please contact me on twitter if you need a script to add a dummy header.
 
 
 **Can I use relative/absolute paths to point to input files?**
@@ -97,7 +102,7 @@ Biopython (used by bwast) is very fussy about the exact genbank/embl format used
 
 **My BLAST hits were flipped and are matching the wrong end of the sequence**
 
-If your query and reference are very similar in length, ACT can sometimes flip the BLAST hits incorrectly.
+If your query and reference are very similar in length, ACT can sometimes flip the BLAST hits incorrectly. I do not know how to prevent this from happening. If you are specifying a subregion, try changing the sequence length.
 
 
 **What does the name *bwast* mean?**
