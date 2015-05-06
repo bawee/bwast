@@ -24,12 +24,15 @@ Requirements
 Dependencies
 =====================
 
-* `NCBI's blast+<ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/>`_ 
+* NCBI's blast+ (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
+
 (``blastn`` and ``tblastx`` need to be on your path)
 
-* `Artemis Comparison Tool (ACT)<https://www.sanger.ac.uk/resources/software/act/>`_ (``act`` needs to be on your path)
+* Artemis Comparison Tool (ACT) (https://www.sanger.ac.uk/resources/software/act/)
 
-* `**Biopython**<http://biopython.org/wiki/Main_Page>`_.
+(``act`` needs to be on your path)
+
+* Biopython (http://biopython.org/wiki/Main_Page)
 
 Input format requirements
 ============================
