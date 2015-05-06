@@ -9,8 +9,10 @@ Python script to run blast on Genbank/EMBL files without having to first convert
 * Allows loading of files into Artemis Comparison Tool (ACT) - act must be on your PATH (-a option)
 * Can take in infinite number of input sequences, depending on memory available
 
+
 * Requires files to have recognisable suffixes (i.e. gb, gbk, fa, fas, fna, fasta, emb, embl)
 * Requires files to be present or sym-linked in current directory
+
 
 * Produces fasta version of genbank/embl file
 * Produces blast tab delimited (-outfmt 6) output with blast options specified
