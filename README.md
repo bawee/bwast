@@ -24,7 +24,7 @@ Requirements
 Dependencies
 ++++++++++++++++
 
-* `**NCBI's blast+**<ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/>`_. (``blastn`` and ``tblastx`` need to be on your path)
+* **`NCBI's blast+<ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/>`_.** (``blastn`` and ``tblastx`` need to be on your path)
 
 * `**Artemis Comparison Tool (ACT)**<https://www.sanger.ac.uk/resources/software/act/>`_. (``act`` needs to be on your path)
 
