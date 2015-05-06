@@ -1,9 +1,9 @@
 # bwast
-Performs blast comparisons using genbank files
+Performs command-line BLAST using Fasta/Genbank/EMBL files and loads the comparison up in ACT, *in just one step*.
 
-Description
---------------
-Python script to run blast on Genbank/EMBL files without having to first convert to fasta. 
+
+Why use bwast?
+-----------------
 
 Allows:
 
@@ -11,21 +11,33 @@ Allows:
 * Automated loading of the sequences and comparison into the Artemis Comparison Tool (ACT) - act must be on your PATH (-a option)
 * An infinite number of input sequences, depending on memory available
 
-Requires:
-
-* Files to have recognisable suffixes (i.e. gb, gbk, fa, fas, fna, fasta, emb, embl)
-* Files to be present or sym-linked in current directory (i.e. NO relative/absolute paths to files)
-* Properly formatted genbank/embl files (According to biopython requirements)
-
-Produces:
+Produces (Output files):
 
 * Fasta version of genbank/embl file supplied
 * Blast tab delimited (-outfmt 6) output with blast options used, in the filename
 * A new genbank/embl/fasta file of a specified subregion, if coordinates were given
 
 
-Examples
----------------
+Requirements
+-----------------
+
+Dependencies
+++++++++++++++++
+
+* **NCBI's blast+** (``blastn`` and ``tblastx`` need to be on your path)
+* **Artemis Comparison Tool (ACT)** (``act`` needs to be on your path)
+* **Biopython**
+
+Input format requirements
++++++++++++++++++++++++++++++
+
+* Input files need to have a recognisable suffix (e.g. gb, gbk, emb, embl, fas, fasta, fna, fa)
+* Input files must be in present or sym-linked in the working directory. Please do not use relative/absolute path with filenames.
+* Genbank and EMBL files must be formatted according to Biopython requirements. Valid headers must be present. Genbank output from Artemis and RAST are known to cause issues. 
+
+
+Quick Start Instructions
+--------------------------
 
 **Blast two genbank files**
 
@@ -50,14 +62,6 @@ Examples
 **See optional arguments and usage**
 
 ``bwast.py -h``
-
-
-Requirements
------------------
-
-* **NCBI's blast+** (``blastn`` and ``tblastx`` need to be on your path)
-* **Artemis Comparison Tool (ACT)** (``act`` needs to be on your path)
-* **Biopython**
 
 
 F.A.Q
@@ -118,5 +122,5 @@ Inspired by EasyfigCL (MJ Sullivan) and Seqhandler (NF Alikhan)
 
 Merge subroutine adapted from Seqhandler (NF Alikhan) github.com/happykhan/seqhandler
 
-Version 0.0.1 
-
+Version 0.0.1 - 1st version
+Version 0.0.2 - added ability to detect and merge multifasta inputs - Thanks to B Forde for the suggestion.
