@@ -22,16 +22,17 @@ Requirements
 -----------------
 
 Dependencies
-++++++++++++++++
+=====================
 
-* **`NCBI's blast+<ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/>`_.** (``blastn`` and ``tblastx`` need to be on your path)
+* `NCBI's blast+<ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/>`_ 
+(``blastn`` and ``tblastx`` need to be on your path)
 
-* `**Artemis Comparison Tool (ACT)**<https://www.sanger.ac.uk/resources/software/act/>`_. (``act`` needs to be on your path)
+* `Artemis Comparison Tool (ACT)<https://www.sanger.ac.uk/resources/software/act/>`_ (``act`` needs to be on your path)
 
 * `**Biopython**<http://biopython.org/wiki/Main_Page>`_.
 
 Input format requirements
-+++++++++++++++++++++++++++++
+============================
 
 * Input files need to have a recognisable suffix (e.g. gb, gbk, emb, embl, fas, fasta, fna, fa)
 * Input files must be in present or sym-linked in the working directory. Please do not use relative/absolute path with filenames.
