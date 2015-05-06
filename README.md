@@ -23,15 +23,18 @@ Requirements
 
 **Dependencies**
 
-* NCBI's blast+ (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
+* [NCBI's blast+] []
+[NCBI's blast+]: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
 
     (``blastn`` and ``tblastx`` need to be on your path)
 
-* Artemis Comparison Tool (ACT) (https://www.sanger.ac.uk/resources/software/act/)
+* [Artemis Comparison Tool (ACT)] []
+[Artemis Comparison Tool (ACT)]: https://www.sanger.ac.uk/resources/software/act/
 
     (``act`` needs to be on your path)
 
-* Biopython (http://biopython.org/wiki/Main_Page)
+* [Biopython] []
+[Biopython]: http://biopython.org/wiki/Main_Page
 
 **Input format requirements**
 
@@ -73,8 +76,9 @@ F.A.Q
 
 **I think I found a bug in the script. How do I let you know?**
 
-Thanks for taking the time to report it! Please submit an issue on GitHub and I will be in touch shortly. You can also contact me on twitter ``@bawee``.
+Thanks for taking the time to report it! Please submit an issue on GitHub and I will be in touch shortly. You can also contact me on twitter [@bawee] [].
 
+[@bawee]: https://twitter.com/bawee
 
 **Why do I get the error: ``BLAST engine error: Empty CBlastQueryVector`` or ``Command line argument error: Query is Empty!``?**
 
@@ -87,18 +91,21 @@ The path name (e.g. ../../seq/) is currently read in when parsing the given argu
 
 E.g. 
 
-``cd directory/you/want/to/work/in``
+```
+cd directory/you/want/to/work/in
 
-``ln -s path/to/sequence/files .``
+ln -s path/to/sequence/files .
 
-``path/to/bwast.py genbank1.gb genbank2.gb``
-
+path/to/bwast.py genbank1.gb genbank2.gb
+```
 
 **How do I get ACT on my PATH?**
 
 On the Mac, run this command: 
 
-``export PATH="$PATH:/Applications/Artemis.app/Contents"``
+```
+export PATH="$PATH:/Applications/Artemis.app/Contents"
+```
 
 or put this line into your ~/.profile to have it set permanently.
 
