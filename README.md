@@ -63,9 +63,9 @@ Requirements
 F.A.Q
 ----------------
 
-**I think I found a bug in the script. How do I report it?**
+**I think I found a bug in the script. How do I let you know?**
 
-Please submit an issue on GitHub and I will be in touch shortly. You can also contact me on twitter ``@bawee``.
+Thanks for taking the time to report it! Please submit an issue on GitHub and I will be in touch shortly. You can also contact me on twitter ``@bawee``.
 
 
 **Why do I get the error: ``BLAST engine error: Empty CBlastQueryVector`` or ``Command line argument error: Query is Empty!``?**
