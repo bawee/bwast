@@ -24,7 +24,7 @@ Requirements
 **Dependencies**
 
 * [NCBI's blast+] []
-[NCBI's blast+]: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
+[NCBI's blast+]: http://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
 
     (``blastn`` and ``tblastx`` need to be on your path)
 
