@@ -71,6 +71,36 @@ Quick Start Instructions
 ``bwast.py -h``
 
 
+Detailed Instructions
+----------------------------
+
+**Getting bwast**
+
+To use, simply use ``git clone https://github.com/bawee/bwast.git``, if you have Git installed (recommended).
+
+*--or--*
+
+Just download the ``bwast.py`` Python script on it's own.
+
+
+**Running bwast**
+
+``path/to/bwast.py sequence1.gbk sequence2.fna``
+
+
+**Optional arguments**
+
+* ``-h, --help`` show this help message and exit
+
+* ``-f FLAGS, --flags FLAGS`` Custom BLAST options, enclosed in quotes. E.g. ``-f '-task blastn -evalue 0.001'``
+
+* ``-v, --verbose`` Verbose mode
+
+* ``-a, --act`` Run ACT after performing BLAST
+
+* ``-b {blastn,tblastx}, --blast {blastn,tblastx}`` Blast program to use. Either ``tblastn`` or ``blastn``. Default is ``blastn``
+
+
 F.A.Q
 ----------------
 
