@@ -7,21 +7,21 @@ Python script to run blast on Genbank/EMBL files without having to first convert
 
 Allows:
 
-	* Allows subregion of genbank or fasta file to be specified after filename (start..stop)
-	* Allows loading of files into Artemis Comparison Tool (ACT) - act must be on your PATH (-a option)
-	* Can take in infinite number of input sequences, depending on memory available
+* A subregion of genbank or fasta file to be specified after filename (start..stop)
+* Automated loading of the sequences and comparison into the Artemis Comparison Tool (ACT) - act must be on your PATH (-a option)
+* An infinite number of input sequences, depending on memory available
 
 Requires:
 
-* Requires files to have recognisable suffixes (i.e. gb, gbk, fa, fas, fna, fasta, emb, embl)
-* Requires files to be present or sym-linked in current directory
+* Files to have recognisable suffixes (i.e. gb, gbk, fa, fas, fna, fasta, emb, embl)
+* Files to be present or sym-linked in current directory (i.e. NO relative/absolute paths to files)
+* Properly formatted genbank/embl files (According to biopython requirements)
 
 Produces:
 
-* Produces fasta version of genbank/embl file
-* Produces blast tab delimited (-outfmt 6) output with blast options specified
-* Produces genbank/embl/fasta of subregion, if coordinates given
-
+* Fasta version of genbank/embl file supplied
+* Blast tab delimited (-outfmt 6) output with blast options used, in the filename
+* A new genbank/embl/fasta file of a specified subregion, if coordinates were given
 
 
 Examples
@@ -114,5 +114,4 @@ Inspired by EasyfigCL (MJ Sullivan) and Seqhandler (NF Alikhan)
 Merge subroutine adapted from Seqhandler (NF Alikhan) github.com/happykhan/seqhandler
 
 Version 0.0.1 
-
 
