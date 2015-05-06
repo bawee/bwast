@@ -2,8 +2,8 @@
 Performs command-line BLAST using Fasta/Genbank/EMBL files and loads the comparison up in ACT, *in just one step*.
 
 
-Why use bwast?
------------------
+Why use **bwast**?
+-------------------
 
 Allows:
 
@@ -21,24 +21,22 @@ Produces (Output files):
 Requirements
 -----------------
 
-Dependencies
-=====================
+**Dependencies**
 
 * NCBI's blast+ (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
 
-(``blastn`` and ``tblastx`` need to be on your path)
+    (``blastn`` and ``tblastx`` need to be on your path)
 
 * Artemis Comparison Tool (ACT) (https://www.sanger.ac.uk/resources/software/act/)
 
-(``act`` needs to be on your path)
+    (``act`` needs to be on your path)
 
 * Biopython (http://biopython.org/wiki/Main_Page)
 
-Input format requirements
-============================
+**Input format requirements**
 
-* Input files need to have a recognisable suffix (e.g. gb, gbk, emb, embl, fas, fasta, fna, fa)
-* Input files must be in present or sym-linked in the working directory. Please do not use relative/absolute path with filenames.
+* Input files should have a recognisable suffix (e.g. gb, gbk, emb, embl, fas, fasta, fna, fa)
+* Input files should be present or sym-linked in the working directory. Please do not use relative/absolute path with filenames.
 * Genbank and EMBL files must be formatted according to Biopython requirements. Valid headers must be present. Genbank output from Artemis and RAST are known to cause issues. 
 
 
