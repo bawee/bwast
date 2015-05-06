@@ -8,7 +8,7 @@ Why use bwast?
 Allows:
 
 * A subregion of genbank or fasta file to be specified after filename (start..stop)
-* Automated loading of the sequences and comparison into the Artemis Comparison Tool (ACT) - act must be on your PATH (-a option)
+* Automated loading of the sequences and comparison into the Artemis Comparison Tool (ACT) - act must be on your PATH (Please use ``-a`` flag)
 * An infinite number of input sequences, depending on memory available
 
 Produces (Output files):
@@ -24,9 +24,11 @@ Requirements
 Dependencies
 ++++++++++++++++
 
-* **NCBI's blast+** (``blastn`` and ``tblastx`` need to be on your path)
-* **Artemis Comparison Tool (ACT)** (``act`` needs to be on your path)
-* **Biopython**
+* `**NCBI's blast+**<ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/>`_. (``blastn`` and ``tblastx`` need to be on your path)
+
+* `**Artemis Comparison Tool (ACT)**<https://www.sanger.ac.uk/resources/software/act/>`_. (``act`` needs to be on your path)
+
+* `**Biopython**<http://biopython.org/wiki/Main_Page>`_.
 
 Input format requirements
 +++++++++++++++++++++++++++++
