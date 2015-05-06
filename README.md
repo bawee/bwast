@@ -25,11 +25,13 @@ Requirements
 
 * [NCBI's blast+] []
 [NCBI's blast+]: http://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
- (``blastn`` and ``tblastx`` need to be on your path)
+
+    (``blastn`` and ``tblastx`` need to be on your path)
 
 * [Artemis Comparison Tool (ACT)] []
 [Artemis Comparison Tool (ACT)]: https://www.sanger.ac.uk/resources/software/act/
- (``act`` needs to be on your path)
+ 
+    (``act`` needs to be on your path)
 
 * [Biopython] []
 [Biopython]: http://biopython.org/wiki/Main_Page
