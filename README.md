@@ -74,18 +74,18 @@ Quick Start Instructions
 F.A.Q
 ----------------
 
-**I think I found a bug in the script. How do I let you know?**
+#**I think I found a bug in the script. How do I let you know?**
 
 Thanks for taking the time to report it! Please submit an issue on GitHub and I will be in touch shortly. You can also contact me on twitter [@bawee] [].
 
 [@bawee]: https://twitter.com/bawee
 
-**Why do I get the error: ``BLAST engine error: Empty CBlastQueryVector`` or ``Command line argument error: Query is Empty!``?**
+#**Why do I get the error: ``BLAST engine error: Empty CBlastQueryVector`` or ``Command line argument error: Query is Empty!``?**
 
 Genbank files output by Artemis can sometimes cause this due to the absence of a valid header. Please contact me on twitter if you need a script to add a dummy header.
 
 
-**Can I use relative/absolute paths to point to input files?**
+#**Can I use relative/absolute paths to point to input files?**
 
 The path name (e.g. ../../seq/) is currently read in when parsing the given arguments. It would be better to copy or link your sequence files into your current working directory.
 
