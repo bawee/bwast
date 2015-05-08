@@ -1,4 +1,7 @@
 # bwast
+
+**B**last **W**rapper **A**nd **S**equence **T**rimmer 
+
 Performs command-line BLAST using Fasta/Genbank/EMBL files and loads the comparison up in ACT, *in just one step*.
 
 
@@ -153,7 +156,7 @@ export PATH="$PATH:/Applications/Artemis.app/Contents"
 
 7. **What does the name *bwast* mean?**
 
-  Blast Wrapper And Sequence Truncator 
+  Blast Wrapper And Sequence Trimmer 
 
 
 Info
