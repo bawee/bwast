@@ -42,7 +42,7 @@ Requirements
 **Input format requirements**
 
 * Input files should have a recognisable suffix (e.g. gb, gbk, emb, embl, fas, fasta, fna, fa)
-* Input files should be present or sym-linked in the working directory. Please do not use relative/absolute path with filenames.
+* ~~Input files should be present or sym-linked in the working directory. Please do not use relative/absolute path with filenames.~~ Fixed: 2 Sep 2015
 * Genbank and EMBL files must be formatted according to Biopython requirements. Valid headers must be present. Genbank output from Artemis and RAST are known to cause issues. 
 
 
@@ -121,17 +121,9 @@ F.A.Q
 
 3. **Can I use relative/absolute paths to point to input files?**
 
-  The path name (e.g. ../../seq/) is currently read in when parsing the given arguments. It would be better to copy or link your sequence files into your current working directory.
+  ~~The path name (e.g. ../../seq/) is currently read in when parsing the given arguments. It would be better to copy or link your sequence files into your current working directory.~~
 
-  E.g. 
-
-  ```
-cd directory/you/want/to/work/in
-
-ln -s path/to/sequence/files .
-
-path/to/bwast.py genbank1.gb genbank2.gb
-```
+  Yes you can!
 
 4. **How do I get ACT on my PATH?**
 
