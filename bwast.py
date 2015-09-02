@@ -54,6 +54,10 @@ def doBlast(inputList):
         queryName = re.sub(r"\.(\w+$)", r"", inputList[i]) #strip suffixes from filename
         subjecName = re.sub(r"\.(\w+$)", r"", inputList[i+1])
         
+        queryName = os.path.basename(queryName)
+        subjecName = os.path.basename(subjecName)
+        
+        
         queryFile = ''
         subjecFile = ''
         
