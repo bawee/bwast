@@ -207,7 +207,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='''
 Wrapper script to run blast on Genbank/EMBL files without having to first convert to fasta.
     
-Input: Genbank, EMBL or Fasta (Make sure files, or symlinks, are in working directory)
+Input: Genbank, EMBL or Fasta
     
 Requires: BLAST+, ACT and BioPython on your PATH
     ''', formatter_class=RawTextHelpFormatter)
