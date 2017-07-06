@@ -164,7 +164,7 @@ def convert2Fasta(file):
     SeqIO.convert(file, determineFileType(file), convertedFilename, 'fasta')
 
 def determineFileType(file):
-    if re.search("|".join(["gb$", "gbk$"]), file):
+    if re.search("|".join(["gb$", "gbk$", "gbff$"]), file):
         return "genbank"
     elif re.search("|".join(["embl$", "emb$"]), file):
         return "embl"
