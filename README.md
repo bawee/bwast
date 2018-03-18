@@ -40,7 +40,7 @@ Requirements
 
 **Input format requirements**
 
-* Input files should have a recognisable suffix (e.g. gb, gbk, emb, embl, fas, fasta, fna, fa)
+* Input files should have a recognisable suffix (e.g. gb, gbk, gbff, emb, embl, fas, fasta, fna, fa)
 * Genbank and EMBL files must be formatted according to Biopython requirements. Valid headers must be present. Genbank output from Artemis and RAST are known to cause issues. 
 
 
