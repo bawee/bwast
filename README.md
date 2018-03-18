@@ -128,7 +128,7 @@ F.A.Q
 
     or put this line into your ~/.profile to have it set permanently.
 
-    On Windows 10, you can a combination of Windows Subsystem for Linux shell (e.g. ubuntu) and an Xwindow server such as VcXsrv or Xming. You will still need to add the ACT executable (for unix) to your path, for example:
+    On Windows 10, you can a combination of Windows Subsystem for Linux shell (e.g. ubuntu) and a window X-server such as VcXsrv or Xming. You will still need to add the ACT executable (for unix) to your path, for example:
     ```
     export PATH="$PATH:/path/to/artemis/download"
     ```
