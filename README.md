@@ -108,44 +108,45 @@ F.A.Q
 
 1. **I think I found a bug in the script. How do I let you know?**
 
-  Thanks for taking the time to report it! Please submit an [issue] [] on GitHub and I will be in touch shortly. You can also contact me on twitter [@bawee] [].
+Thanks for taking the time to report it! Please submit an [issue] [] on GitHub and I will be in touch shortly. You can also contact me on twitter [@bawee] [].
 
   [issue]: https://github.com/bawee/bwast/issues
   [@bawee]: https://twitter.com/bawee
 
 2. **Why do I get the error: ``BLAST engine error: Empty CBlastQueryVector`` or ``Command line argument error: Query is Empty!``?**
 
-  Genbank files output by Artemis can sometimes cause this due to the absence of a valid header. Please contact me on twitter if you need a script to add a dummy header.
+Genbank files output by Artemis can sometimes cause this due to the absence of a valid header. Please contact me on twitter if you need a script to add a dummy header.
 
 
 3. **Can I use relative/absolute paths to point to input files?**
 
-  Yes you can!
+Yes you can!
 
 4. **How do I get ACT on my PATH?**
 
-  On the Mac, run this command: 
+On a *Mac*, run this command: 
 
-  ```
+```
 export PATH="$PATH:/Applications/Artemis.app/Contents"
 ```
 
-  or put this line into your ~/.profile to have it set permanently.
+or put this line into your ~/.profile to have it set permanently.
 
+On Windows 10, you can a combination of Windows Subsystem for Linux shell (e.g. ubuntu) and an Xwindow server such as VcXsrv or Xming. You will still need to add the ACT executable (for unix) to your path.  
 
 5. **I get error messages when using a genbank or embl file. Is there something wrong with my file format?**
 
-  Biopython (used by bwast) is very fussy about the exact genbank/embl format used. Try manually adding the expected lines/text in the header. Genbank/embl files output by Artemis and RAST are known to be incompatible with biopython.
+Biopython (used by bwast) is very fussy about the exact genbank/embl format used. Try manually adding the expected lines/text in the header. Genbank/embl files output by Artemis and RAST are known to be incompatible with biopython.
 
 
 6. **My BLAST hits were flipped and are matching the wrong end of the sequence**
 
-  If your query and reference are very similar in length, ACT can sometimes flip the BLAST hits incorrectly. I do not know how to prevent this from happening. If you are specifying a subregion, try changing the sequence length.
+If your query and reference are very similar in length, ACT can sometimes flip the BLAST hits incorrectly. I do not know how to prevent this from happening. If you are specifying a subregion, try changing the sequence length.
 
 
 7. **What does the name *bwast* mean?**
 
-  Blast Wrapper And Sequence Trimmer 
+Blast Wrapper And Sequence Trimmer 
 
 
 Info
