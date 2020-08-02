@@ -7,6 +7,7 @@ Written by Bryan Wee.
 Version 0.0.1 - 20150425
 
 """
+from __future__ import print_function
 
 import sys, os
 import argparse
@@ -28,7 +29,7 @@ def main():
             filesForBlasting.append(shortGenbank) #appends the cut filename to the list
             
         elif determineFileType(args.input[i]):
-            if args.verbose: print args.input[i], "file type is:", determineFileType(args.input[i])
+            if args.verbose: print(args.input[i], "file type is:", determineFileType(args.input[i]))
             filesForBlasting.append(args.input[i])
             
 
@@ -72,7 +73,7 @@ def doBlast(inputList):
             filetype = determineFileType(inputList[i])
             records = list(SeqIO.parse(inputList[i], filetype))
             if len(records) > 1:
-                if args.verbose: print "Multifasta detected, concatenating prior to BLASTing"
+                if args.verbose: print("Multifasta detected, concatenating prior to BLASTing")
                 mergedFile = mergeRecords(inputList[i])
                 queryFile = mergedFile
                     
@@ -88,7 +89,7 @@ def doBlast(inputList):
             filetype = determineFileType(inputList[i+1])
             records = list(SeqIO.parse(inputList[i+1], filetype))
             if len(records) > 1:
-                if args.verbose: print "Multifasta detected, concatenating prior to BLASTing"
+                if args.verbose: print("Multifasta detected, concatenating prior to BLASTing")
                 mergedFile = mergeRecords(inputList[i+1])
                 subjecFile = mergedFile
                     
@@ -98,11 +99,11 @@ def doBlast(inputList):
         
         blastType = args.blast
         
-        if args.verbose: print "Performing blast"
+        if args.verbose: print("Performing blast")
         blastOptionsPre = (args.flags if args.flags else "")
         blastOptions = re.sub(r"-(\w+)\s", r"\1_", blastOptionsPre)
         blastOptions = re.sub(r"\s+", r".", blastOptions)
-        if args.verbose: print "with options: %s" % (blastOptionsPre)
+        if args.verbose: print("with options: %s" % (blastOptionsPre))
         
         blast_out = "%s.vs.%s.%s.%s.tab" % (queryName, subjecName, blastOptions, blastType)
         
@@ -175,7 +176,7 @@ def determineFileType(file):
         
            
 def cutGenbank(file, coordinates):
-    if args.verbose: print "Coordinates provided, cutting:", file, coordinates
+    if args.verbose: print("Coordinates provided, cutting:", file, coordinates)
     coordinatesSplit = coordinates.split('..') #splits start from stop
     startCut = int(coordinatesSplit[0])
     stopCut = int(coordinatesSplit[1])
@@ -191,7 +192,7 @@ def cutGenbank(file, coordinates):
         cutFileName =  re.sub(r"cut", coordinates, cutFileName) #specifies cut in the name
         cutFile = open(cutFileName, 'w')
         SeqIO.write(cutGenbank, cutFile, determineFileType(file))
-        if args.verbose: print "Cut file written to:", cutFileName            
+        if args.verbose: print("Cut file written to:", cutFileName)            
     
     return cutFileName
         
