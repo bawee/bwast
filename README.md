@@ -28,15 +28,17 @@ Requirements
 
 * [NCBI's blast+](http://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
 
-    (``blastn`` and ``tblastx`` need to be on your path)
+    (``blastn`` and ``tblastx`` need to be on your path, ``conda install -c bioconda blast``)
 
 * [Artemis Comparison Tool (ACT)](http://www.sanger.ac.uk/science/tools/artemis-comparison-tool-act)
  
-    (``act`` needs to be on your path)
+    (``act`` needs to be on your path, ``conda install -c bioconda artemis``)
 
 * [Biopython](http://biopython.org/wiki/Main_Page)
     
-    (I use pip to install biopython)
+    (I use conda to install biopython, ``conda install -c bioconda biopython`` )
+
+If you are using Conda with Apple Silicon Macs (M1/M2), see [this](https://towardsdatascience.com/how-to-manage-conda-environments-on-an-apple-silicon-m1-mac-1e29cb3bad12)
 
 **Input format requirements**
 
