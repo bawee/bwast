@@ -105,7 +105,9 @@ def doBlast(inputList):
         blastOptions = re.sub(r"\s+", r".", blastOptions)
         if args.verbose: print("with options: %s" % (blastOptionsPre))
         
-        blast_out = "%s.vs.%s.%s.%s.tab" % (queryName, subjecName, blastOptions, blastType)
+        # Constructing the filename
+        blast_out_parts = [queryName, subjecName, blastOptions, blastType]
+        blast_out = ".".join(part for part in blast_out_parts if part) + ".tab"
 
         actList.append(blast_out) #append blast file to ACT input list
         

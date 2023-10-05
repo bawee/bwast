@@ -1,0 +1,7 @@
+# BLASTN 2.6.0+
+# Query: tet(32)_1_EU722333
+# Database: User specified sequence set (Input: tet32_2.fa)
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+tet(32)_1_EU722333	tet(32)_2_EF626943	98.227	1918	34	0	1	1918	1	1918	0.0	3354
+# BLAST processed 1 queries
