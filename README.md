@@ -100,6 +100,7 @@ Just download the ``bwast.py`` Python script on it's own.
 * ``-a, --act`` Run ACT after performing BLAST
 
 * ``-b {blastn,tblastx}, --blast {blastn,tblastx}`` Blast program to use. Either ``tblastn`` or ``blastn``. Default is ``blastn``
+* ``-o, --outfmt`` Change the output format. Default is ``--outfmt 6``. 
 
 
 F.A.Q
