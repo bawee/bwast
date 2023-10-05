@@ -106,7 +106,7 @@ def doBlast(inputList):
         if args.verbose: print("with options: %s" % (blastOptionsPre))
         
         blast_out = "%s.vs.%s.%s.%s.tab" % (queryName, subjecName, blastOptions, blastType)
-        
+
         actList.append(blast_out) #append blast file to ACT input list
         
         if os.path.exists(blast_out): #check if blast output exists
@@ -114,7 +114,8 @@ def doBlast(inputList):
             pass
         
         #run BLAST
-        subprocess.Popen("%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre), shell=True).wait()
+        subprocess.Popen("%s -query %s -subject %s -outfmt %s -out %s %s" % (blastType, queryFile, subjecFile, args.outfmt, blast_out, blastOptionsPre), shell=True).wait()
+
         #print "%s -query %s -subject %s -outfmt 6 -out %s %s" % (blastType, queryFile, subjecFile, blast_out, blastOptionsPre)
 
 
@@ -220,6 +221,7 @@ Requires: BLAST+, ACT and BioPython on your PATH
     parser.add_argument("-v", "--verbose", action="store_true", default=False, help="Verbose mode")
     parser.add_argument("-a", "--act", action="store_true", default=False, help="Run ACT.")
     parser.add_argument("-b", "--blast", action="store", default="blastn", choices=("blastn", "tblastx"), help="Blast program to use. Default [blastn]")
+    parser.add_argument("-o", "--outfmt", action="store", default="6", help="BLAST output format. Default [6]")
     args = parser.parse_args()
 
 
